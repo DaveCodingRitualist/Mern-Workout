@@ -1,11 +1,9 @@
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
-
-export const useAuthContext = () => {
+export const useAuthContext= () => {
     const context = useContext(AuthContext)
-    
     if (!context) {
-        throw new Error('useWorkoutsContext must be used insiide a WorkoutsContextProvider')
+        throw Error('useWorkoutContext must be inside an AuthContextProvider')
     }
     return context
 }
