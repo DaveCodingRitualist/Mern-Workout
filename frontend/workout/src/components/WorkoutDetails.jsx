@@ -10,7 +10,7 @@ const WorkoutDetails = ({ workout }) => {
       return
     }
 
-    const response = await fetch(`http://localhost:4000/api/workouts/${workout._id}`, {
+    const response = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/workouts/${workout._id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${user.token}`
@@ -22,6 +22,7 @@ const WorkoutDetails = ({ workout }) => {
     if (response.ok) {
       dispatch({ type: 'DELETE_WORKOUT', payload: json })
     }
+
   }
 
   return (

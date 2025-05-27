@@ -9,7 +9,7 @@ export const useLogin = () => {
         setLoading(true)
         setError(null)
 
-        const response = await fetch('http://localhost:4000/api/user/login', {
+        const response = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/user/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
