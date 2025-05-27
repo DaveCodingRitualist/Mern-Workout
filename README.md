@@ -11,3 +11,5 @@ This is a Full Stack MERN Application built with MongoDB, Express.js, React, and
 📦 Backend – Node.js and Express handle API routing, authentication middleware, and database interactions.
 
 This project is a solid foundation for building secure, scalable, and user-friendly full-stack applications.
+
+check it out here: https://mern-workout-by-dave.vercel.app/
