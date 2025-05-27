@@ -11,11 +11,11 @@ const { user } = useAuthContext()
     <header>
      <div className="container">
         <Link to='/'>
-            <h1>Workout Buddy</h1>
+            <h1 className='my-title'>Workout Buddy</h1>
         </Link>
         <nav>
         {user && <div>
-          <span>{user.email}  </span>
+          {/* <span>{user.email}  </span> */}
           <button onClick={handleClick}>Log out</button>
         </div>}
         {!user && <>
