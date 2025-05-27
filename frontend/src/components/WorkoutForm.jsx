@@ -9,12 +9,14 @@ const WorkoutForm = () => {
   const [load, setLoad] = useState('')
   const [reps, setReps] = useState('')
   const [error, setError] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
   const [emptyFields, setEmptyFields] = useState([])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
+    setIsLoading(true)
     if (!user) {
+      setIsLoading(false)
       setError('You must be logged in')
       return
     }
@@ -32,10 +34,12 @@ const WorkoutForm = () => {
     const json = await response.json()
  
     if (!response.ok) {
+      setIsLoading(false)
       setError(json.error)
       setEmptyFields(json.emptyFields)
     }
     if (response.ok) {
+      setIsLoading(false)
       setTitle('')
       setLoad('')
       setReps('')
@@ -70,6 +74,7 @@ const WorkoutForm = () => {
         className={emptyFields.includes('reps') ? 'error' : ''}
       />
       <button>Add Workout</button>
+      {isLoading && <button disabled>Adding workout...</button>}
       {error && <div className="error">{error}</div>}
     </form>
   )
